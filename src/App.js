@@ -4,17 +4,21 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import Navbar from './components/Navbar';
+import NoteState from './context/notes/NoteState';
 function App() {
   return (
     <>
-      <h1>This is me</h1>
-      <Navbar/>
-      <Routes>
-        <Route path="/Home" element={< Home />} />
+    
 
-        <Route path="/About" element={< About />} />
+      <NoteState>
+        <Navbar />
+        <Routes>
+          <Route path="/Home" element={< Home />} />
 
-      </Routes>
+          <Route path="/About" element={< About />} />
+
+        </Routes>
+      </NoteState>
     </>
   );
 }
