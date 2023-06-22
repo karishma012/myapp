@@ -1,9 +1,7 @@
-
 import NoteContext from "./NoteContext";
 import { useState } from "react";
-
 const NoteState = (props) => {
-    const notesInitial = [
+    const note = [
         {
             "_id": "647790d544b83925cfb4b09d",
             "user": "6472e943a55c7854762b3ecb",
@@ -41,11 +39,43 @@ const NoteState = (props) => {
             "__v": 0
         }
     ]
-    const [notes, setNotes] = useState(notesInitial)
+    const [notes, setNotes] = useState(note)
+    console.log("adding a new note")
+    //add a note
+    const addNote = (title, description, tag) => {
+      
+        const note = {
+            "_id": "64679b59870de05cf3bbe111",
+            "user": "6472e943a55c7854762b3ecb",
+            "title": title,
+            "description": description,
+            "tag": tag,
+            "date": "2023-05-31T19:09:13.005Z",
+            "__v": 0
+        };
+        setNotes(notes.concat(note))
+        //yaha note add hojayega
+
+    }
+
+    //delete a note
+    const deleteNote = () => {
+
+    }
+
+    //edit a note
+    const editNote = () => {
+
+    }
 
     return (
-        <NoteContext.Provider value={{ notes, setNotes }}>
+        //export krdo sbko
+        //NoteContext.Provider component is used to wrap its child components. 
+        // It provides the notes state, addNote, deleteNote, and editNote
+        //{props.children} ==> exports child components
+        <NoteContext.Provider value={{ notes, addNote, deleteNote, editNote }}>
             {props.children}
+
         </NoteContext.Provider>
     )
 }
