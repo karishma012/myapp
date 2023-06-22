@@ -42,6 +42,7 @@ const NoteState = (props) => {
     const [notes, setNotes] = useState(note)
     console.log("adding a new note")
     //add a note
+    //when you call this addNote function and provide the title, description, and tag of a note, ...It concatenates the new note object to the existing list of notes (notes.concat(note)), creating a new array that includes the old notes as well as the newly added note.
     const addNote = (title, description, tag) => {
       
         const note = {
@@ -59,8 +60,10 @@ const NoteState = (props) => {
     }
 
     //delete a note
-    const deleteNote = () => {
-
+    const deleteNote = (id) => {
+console.log("deleting id" + id)
+const newNotes = notes.filter((note)=>{return note._id!==id})
+        setNotes(newNotes)
     }
 
     //edit a note

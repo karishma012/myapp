@@ -7,7 +7,7 @@ import AddNote from './AddNote';
 // har note k lie ek alg noteitem hota hai
 function Notes() {
     const context = useContext(NoteContext);
-    const { notes , addNote } = context;
+    const { notes  } = context;
     return (
 <>
             <AddNote/>
