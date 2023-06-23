@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import NoteContext from '../context/notes/NoteContext';
 import Noteitem from './Noteitem';
 import AddNote from './AddNote';
@@ -7,17 +7,20 @@ import AddNote from './AddNote';
 // har note k lie ek alg noteitem hota hai
 function Notes() {
     const context = useContext(NoteContext);
-    const { notes  } = context;
+    const { notes, getNotes } = context;
+    useEffect(() => {
+        getNotes()
+    }, [])
     return (
-<>
-            <AddNote/>
-        <div className="row my-3">
-            <h2>Your Notes</h2>
-            {
-            notes.map((notes) => {
-                return <Noteitem notes = {notes}/>
-            })}
-        </div>
+        <>
+            <AddNote />
+            <div className="row my-3">
+                <h2>Your Notes</h2>
+                {
+                    notes.map((notes) => {
+                        return <Noteitem notes={notes} />
+                    })}
+            </div>
         </>
 
     )
