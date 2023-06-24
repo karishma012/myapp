@@ -54,7 +54,20 @@ const NoteState = (props) => {
     }
 
     //delete a note
-    const deleteNote = (id) => {
+    const deleteNote = async (id) => {
+        //API call
+        const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ3MmU5NDNhNTVjNzg1NDc2MmIzZWNiIn0sImlhdCI6MTY4NTI1ODkwOH0.b9aEbMsrM9DbC1C72bn4NXmRYDM-TlqArb8z9ioVTzA"
+
+            },
+
+
+        });
+        const json = await response.json()
+        console.log(json)
         console.log("deleting id" + id)
         const newNotes = notes.filter((note) => { return note._id !== id })
         setNotes(newNotes)
@@ -64,7 +77,7 @@ const NoteState = (props) => {
     const editNote = async (id, title, description, tag) => {
         //now we need to fetch api ...so  we have copied the below syntax from a website FETCH WITH HEADERS
         //here everything we are fetching from thunderclient
-        //api call
+        //API call
         const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
             method: "POST",
             headers: {
