@@ -7,22 +7,24 @@ import AddNote from './AddNote';
 // har note k lie ek alg noteitem hota hai
 function Notes() {
     const context = useContext(NoteContext);
-    const { notes, getNotes } = context;
+    const { notes, getNotes,editNote } = context;
     useEffect(() => {
         getNotes()
     }, [])
-
+    const [note, setNote] = useState({id:"", etitle: "", edescription: "", etag: "default" })
     const ref = useRef(null)
+    const refClose = useRef(null) //to close the modal
 
     const updateNote = (currentNote) => {
         ref.current.click();
-        setNote({ etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag })
+        setNote({id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag })
         //the empty title dec tag will become equal to currNote
     }
-    const [note, setNote] = useState({ etitle: "", edescription: "", etag: "default" })
+   
     const handleClick = (e) => {
         console.log('updating note....', note)
-        e.preventDefault();
+        editNote(note.id , note.etitle ,note.edescription,note.etag)
+        refClose.current.click();
 
     }
 
@@ -60,9 +62,9 @@ function Notes() {
                             </form>
                         </div>
                         <div className="modal-footer">
-                            {/* to populate the updated note in those rows we are using value otherwise they'll remain empty */}
-                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button onClick={handleClick} type="button" className="btn btn-primary">update Note</button>
+                           {/* refClose will close the update button once it is triggered */}
+                            <button ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button onClick={handleClick} type="button" className="btn btn-primary">Update Note</button>
                         </div>
                     </div>
                 </div>
