@@ -38,19 +38,11 @@ const NoteState = (props) => {
 
             body: JSON.stringify({ title, description, tag }),
         });
-        const json = await response.json();
-        console.log(json) //this is how we r solving json error by logging it in console "json' is assigned a value but never used"
-        console.log("adding a note")
-        const note = {
-            "_id": "64679b59870de05cf3bbe111",
-            "user": "6472e943a55c7854762b3ecb",
-            "title": title,
-            "description": description,
-            "tag": tag,
-            "date": "2023-05-31T19:09:13.005Z",
-            "__v": 0
-        };
+        const note = await response.json();
         setNotes(notes.concat(note))
+       // console.log(json) //this is how we r solving json error by logging it in console "json' is assigned a value but never used"
+        
+        
         //yaha note add hojayega
 
     }
@@ -69,8 +61,8 @@ const NoteState = (props) => {
 
         });
         const json = await response.json()
-        console.log(json)
-        console.log("deleting id" + id)
+        
+        
         const newNotes = notes.filter((note) => { return note._id !== id })
         setNotes(newNotes)
     }
@@ -91,7 +83,7 @@ const NoteState = (props) => {
             body: JSON.stringify({ title, description, tag }),
         });
         const json = await response.json()
-        console.log(json)
+       
         let newNotes = JSON.parse(JSON.stringify(notes)) //sab newNotes copy paste hojayenge elements me
         // Logic to edit in client
         //whenever u face await error make the function async
@@ -103,7 +95,7 @@ const NoteState = (props) => {
                 newNotes[index].tag = tag;
                 break;
             }
-            console.log(newNotes)
+            
             setNotes(newNotes);
         }
     }

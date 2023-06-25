@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink , Link } from 'react-router-dom'
 const Navbar = () => {
   return (
     <div>
@@ -20,6 +20,10 @@ const Navbar = () => {
 
 
             </ul>
+            <form className="d-flex"> 
+                    <Link className="btn btn-primary mx-1" to="/Login" role="button">Login</Link>
+                    <Link className="btn btn-primary mx-1" to="/Signup" role="button">Signup</Link>
+                    </form>
 
           </div>
         </div>
