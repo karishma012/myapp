@@ -78,8 +78,10 @@ function Notes() {
                 </div>
             </div>
             <div className="row my-3">
-                <h2>You Notes</h2>
-                <div className="container mx-2">
+            <div className="">
+        <h1 className="block text-3xl font-bold   justify-center text-red-900 bg-white p-6 rounded shadow">Your Notes</h1>
+      </div>
+                <div className="container mx-2 bg-white text-xl font-bold">
                     {notes.length === 0 && 'No notes to display'}
                 </div>
                 {/* when we dont hve anything in else we use && */}
