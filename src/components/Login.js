@@ -35,14 +35,14 @@ const Login = (props) => {
   };
 
   return (
-    <div className="my-4">
+    <div className="flex justify-center items-center h-screen ">
       
-      <div className="bg-white p-6 rounded shadow">
-      <div className="my-4 " >
-        <h1 className="block text-4xl font-bold mb-2 underline justify-center">Login</h1>
+      <div className="bg-white p-6 rounded shadow w-96 h-96">
+      <div className="my-4 text-center text-blue-900" >
+        <h1 className="block text-4xl font-bold mb-2 underline  ">Login</h1>
       </div>
         <form onSubmit={handleSubmit}>
-          <div className="mb-3">
+          <div className="mb-3 font-bold font-sans">
             <label htmlFor="email" className="form-label">
               Email address
             </label>
@@ -60,7 +60,7 @@ const Login = (props) => {
               We'll never share your email with anyone else.
             </div>
           </div>
-          <div className="mb-3">
+          <div className="mb-3 font-bold font-sans">
             <label htmlFor="password" className="form-label">
               Password
             </label>
