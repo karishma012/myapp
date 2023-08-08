@@ -8,6 +8,8 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import { useState } from 'react';
 
+import austinBackground from './components/cup.avif'; // Import the background image
+
 function App() {
   const [alert, setalert] = useState(null);
   const showalert = (message, type) => {
@@ -25,7 +27,10 @@ function App() {
       <NoteState>
         <Navbar />
         <Alert alert={alert} />
-        <div className="container" style={{ backgroundColor: 'black' }}>
+        <div style={{ 
+          background: `url(${austinBackground}) center center / cover no-repeat`,
+          minHeight: '100vh',
+        }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Home" element={<Home showalert={showalert} />} />

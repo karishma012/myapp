@@ -38,7 +38,7 @@ const Login = (props) => {
     <div className="flex justify-center items-center h-screen ">
       
       <div className="bg-white p-6 rounded shadow w-96 h-96">
-      <div className="my-4 text-center text-blue-900" >
+      <div className="my-4 text-center text-black" >
         <h1 className="block text-4xl font-bold mb-2 underline  ">Login</h1>
       </div>
         <form onSubmit={handleSubmit}>

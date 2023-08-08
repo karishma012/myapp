@@ -18,12 +18,12 @@ const AddNote = () => {
   };
 
   return (
-    <div className="container">
+   
       <div className="card">
         <div className="card-body">
         <div className="my-4">
         <h1 className="block text-5xl font-bold mb-2 underline justify-center text-brown-800">Add a Note</h1>
-      </div>
+      
           <form>
             <div className="mb-3">
               <label htmlFor="title" className="form-label">Title</label>
